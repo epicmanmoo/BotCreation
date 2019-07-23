@@ -1,8 +1,8 @@
 package brotatobot.functionality;
 
-import brotatobot.functionality.hosting.Secrets;
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.botcommons.web.WebUtils;
+import me.zebbzz.brotatobot.functionality.hosting.Secrets;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDABuilder;
