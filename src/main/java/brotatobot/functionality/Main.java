@@ -1,8 +1,8 @@
 package brotatobot.functionality;
 
+import brotatobot.functionality.hosting.Secrets;
 import me.duncte123.botcommons.messaging.EmbedUtils;
 import me.duncte123.botcommons.web.WebUtils;
-import me.zebbzz.brotatobot.functionality.hosting.Secrets;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDABuilder;
@@ -24,7 +24,7 @@ public class Main {
 
     private Main() {
 
-        CommandManager commandManager = new CommandManager();
+        CommandManager commandManager = new CommandManager(random);
         Listener listener = new Listener(commandManager);
         Logger logger = LoggerFactory.getLogger(Main.class);
 
@@ -40,7 +40,6 @@ public class Main {
             logger.info("Booting");
             new JDABuilder(AccountType.BOT) //Sets account type as bot
                     .setToken(Secrets.TOKEN) // Token stored in Secrets class, logs in to the bot
-                    .setAudioEnabled(false) // <-- Read
                     .setGame(Game.streaming("Join Our Discord!", "https://discord.gg/CXksb8u")) // <- Discord invite link stored as a "Playing..."
                     .addEventListener(listener) //Read listener class and execute code inside
                     .build().awaitReady(); //
